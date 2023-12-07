@@ -1,1 +1,1 @@
-# jeu_de_loie_modularise
+# jeu_de_loie_modularisation
