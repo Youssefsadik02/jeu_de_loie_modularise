@@ -8,8 +8,9 @@ public class App {
     public static void main(String[] args) {
 
         Random generateur = new Random();
-        int caseObjectif = 20;
+        
         int nbLancers = 5;
+        int caseObjectif = 20;
         boolean gagne = false;
         int compteurSimulations = 0;
 
