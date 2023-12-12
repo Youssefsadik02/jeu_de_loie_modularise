@@ -6,26 +6,31 @@ import java.util.Random;
 public class App {
     
     public static void main(String[] args) {
-
-        Random generateur = new Random();
-        
+    
         int nbLancers = 5;
         int caseObjectif = 20;
+        
+        jouerPartie(nbLancers, caseObjectif);
+        
+    }
+    public static void jouerPartie(int nbLancers, int caseObjectif){
+        
+         int compteurSimulations = 0;
         boolean gagne = false;
-        int compteurSimulations = 0;
-
         while (!gagne) {
             compteurSimulations++;
             int caseCourante = 0;
+              Random generateur = new Random();
 
             for (int i = 1; i <= nbLancers; i++) {
                   caseCourante= LancerDes(generateur,caseCourante,i);
          } 
-            gagne= testeVictoire(caseCourante, caseObjectif, gagne, compteurSimulations);
+            gagne= testeVictoire(caseCourante, caseObjectif, compteurSimulations);
          }
 
 }
-
+        //jouer partie
+    
 
          //Lancer de dés
      public static int LancerDes(Random generateur,int caseCourante,int nbrLancer){
@@ -39,11 +44,12 @@ public class App {
 
 
          // teste de victoire
-     public static boolean testeVictoire(int caseCourante, int caseObjectif, boolean gagne, int compteurSimulations){
+     public static boolean testeVictoire(int caseCourante, int caseObjectif, int compteurSimulations){
+        boolean gagne= false;
      if (caseCourante == caseObjectif) {
         System.out.println("Vous avez gagné !");
         System.out.println("Il aura fallu " + compteurSimulations + " simulations pour gagner.");
-        gagne = true;
+         gagne = true;
         } else if (caseCourante > caseObjectif) {
         System.out.println("Vous dépassez, vous avez perdu !");
         } else {
